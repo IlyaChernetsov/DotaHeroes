@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DotaHeroes</string>
+    <string name="no_heroes_found">No heroes found</string>
+</resources>
