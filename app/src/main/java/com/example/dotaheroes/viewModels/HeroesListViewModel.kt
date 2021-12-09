@@ -18,9 +18,6 @@ class HeroesListViewModel() : ViewModel() {
     private val _selectedHero = MutableLiveData<List<Hero?>>()
     val selected: LiveData<List<Hero?>> = _selectedHero
 
-
-
-
     init {
         val repository = HeroRepositoryImpl()
         GlobalScope.launch(Dispatchers.IO) {
