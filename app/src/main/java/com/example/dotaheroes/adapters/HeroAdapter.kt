@@ -9,7 +9,7 @@ import com.example.domain.models.Hero
 import com.example.dotaheroes.R
 import java.util.*
 
-class HeroAdapter : RecyclerView.Adapter<HeroAdapter.ViewHolder>() {
+class HeroAdapter : RecyclerView.Adapter<HeroAdapter.ViewHolder>(), AdapterData<Hero> {
 
     private val mHeroList: MutableList<Hero> = LinkedList()
 
@@ -17,7 +17,7 @@ class HeroAdapter : RecyclerView.Adapter<HeroAdapter.ViewHolder>() {
         mHeroList.clear()
     }
 
-    fun setData(newHeroes: List<Hero>) {
+    override fun setData(newHeroes: List<Hero>) {
         mHeroList.clear()
         mHeroList.addAll(newHeroes)
         notifyDataSetChanged()

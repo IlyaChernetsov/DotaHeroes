@@ -17,8 +17,6 @@ class FavouriteHeroesFragment : Fragment(R.layout.fragment_favourite_heroes) {
         return inflater.inflate(R.layout.fragment_favourite_heroes, container, false)
     }
 
-
-
     companion object {
         @JvmStatic
         fun newInstance() = FavouriteHeroesFragment()
