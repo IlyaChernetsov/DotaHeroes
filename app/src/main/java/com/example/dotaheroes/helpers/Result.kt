@@ -1,24 +1,8 @@
 package com.example.dotaheroes.helpers
 
-sealed class Result<T> {
-    @Suppress("UNCHECKED_CAST")
-    fun <R> map(mapper: (T) -> R): Result<R> {
-        if (this is SuccessResult) return SuccessResult(mapper(data))
-        return this as Result<R>
-    }
-
+sealed class State {
+    class LoadingState: State()
+    class LoadedState<T>(val data: List<T>): State()
+    class NoItemsState: State()
+    class ErrorState(val message: String): State()
 }
-
-class SuccessResult<T>(
-    val data: T
-) : Result<T>()
-
-class ErrorResult<T>(
-
-
-    val error: Throwable
-) : Result<T>()
-
-class PendingResult<T> : Result<T>()
-
-class EmptyResult<T> : Result<T>()
