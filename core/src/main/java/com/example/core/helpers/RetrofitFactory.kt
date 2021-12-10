@@ -14,6 +14,7 @@ class RetrofitFactory {
     companion object {
         lateinit var heroApi: HeroApi
         const val baseUrl = "https://api.opendota.com/api/"
+        val baseImg = "https://api.opendota.com"
         private fun getOkHttpInstance(): OkHttpClient {
             val httpLoggingInterceptor = HttpLoggingInterceptor()
             httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY

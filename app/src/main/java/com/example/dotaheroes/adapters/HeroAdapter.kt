@@ -3,8 +3,10 @@ package com.example.dotaheroes.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.domain.models.Hero
 import com.example.dotaheroes.R
 import java.util.*
@@ -43,12 +45,15 @@ class HeroAdapter : RecyclerView.Adapter<HeroAdapter.ViewHolder>(), AdapterData<
 
         private val txtHeroTitle: TextView = itemView.findViewById(R.id.txtHeroTitle)
         private val txtHeroAttackType: TextView = itemView.findViewById(R.id.txtHeroAttackType)
+        private val imageHero : ImageView = itemView.findViewById(R.id.imageAvatar)
         fun bind(hero: Hero) {
-            txtHeroTitle.text = hero.heroName
-            txtHeroAttackType.text = hero.attackType
+//            txtHeroTitle.text = hero.heroName
+//            txtHeroAttackType.text = hero.attackType
+            Glide.with(itemView.context)
+                .load(hero.avatar)
+                .fitCenter()
+                .into(imageHero)
         }
 
     }
-
-
 }

@@ -12,6 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlin.math.log
 
 class HeroesListViewModel() : ViewModel() {
     private val TAG = HeroesListViewModel::class.java.simpleName
@@ -33,6 +34,8 @@ class HeroesListViewModel() : ViewModel() {
                 } else {
                     withContext(Dispatchers.Main) {
                         state.set(newValue = State.LoadedState(data = fetchedHeroes))
+                        val a = state.set(newValue = State.LoadedState(data = fetchedHeroes))
+                        val a1 = a
                     }
                 }
             } catch (e: Exception) {

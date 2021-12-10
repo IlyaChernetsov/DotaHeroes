@@ -1,7 +1,7 @@
 package com.example.domain.repositories
 
 
-import android.util.Log
+import com.example.core.helpers.RetrofitFactory
 import com.example.core.remote.providers.HeroProviderImpl
 import com.example.domain.converters.HeroConverter
 import com.example.domain.models.Hero
@@ -13,9 +13,20 @@ class HeroRepositoryImpl() {
     private val heroProviderImpl: HeroProviderImpl = HeroProviderImpl()
     suspend fun fetchHeroes(): Deferred<List<Hero>> {
         return try {
-            val heroes = heroProviderImpl.getHeroesList()
+            val heroesList = heroProviderImpl.getHeroesList()
+            val heroStats = heroProviderImpl.getHeroesStats()
+
             return GlobalScope.async {
-                heroes.map { hero -> heroConverter.fromApiToUi(model = hero) }
+                heroStats.map {
+                    it.icon = "${RetrofitFactory.baseImg}${it.icon}"
+                    it.img = "${RetrofitFactory.baseImg}${it.img}"
+                    it
+                }
+
+                heroesList.map { hero -> heroConverter.fromApiToUi(
+                    heroList = hero,
+                    heroStats = heroStats.first{stats ->  stats.id == hero.id}
+                ) }
             }
         } catch (e: Exception) {
             GlobalScope.async {

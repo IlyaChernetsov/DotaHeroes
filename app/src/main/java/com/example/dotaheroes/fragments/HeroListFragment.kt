@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.domain.models.Hero
 import com.example.dotaheroes.R
@@ -27,8 +28,9 @@ class HeroListFragment : Fragment(R.layout.fragment_hero_list) {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHeroListBinding.inflate(inflater, container, false)
-        val layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+//        val layoutManager =
+//            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        val layoutManager = GridLayoutManager(requireContext(),4)
         binding.recycleHeroList.layoutManager = layoutManager
         val adapter = HeroAdapter()
         binding.recycleHeroList.adapter = adapter
