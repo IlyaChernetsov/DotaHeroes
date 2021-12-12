@@ -9,4 +9,4 @@ dependencyResolutionManagement {
 rootProject.name = "DotaHeroes"
 include ':app'
 include ':domain'
-include ':core'
+include ':data'

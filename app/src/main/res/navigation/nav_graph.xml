@@ -11,20 +11,33 @@
         android:label="fragment_hero_list"
         tools:layout="@layout/fragment_hero_list" >
         <action
-            android:id="@+id/action_heroListFragment_to_heroInfoFragment"
-            app:destination="@id/heroInfoFragment" />
-        <action
             android:id="@+id/action_heroListFragment_to_favouriteHeroesFragment"
             app:destination="@id/favouriteHeroesFragment" />
+        <action
+            android:id="@+id/action_heroListFragment_to_heroInfoFragment"
+            app:destination="@id/heroInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/heroInfoFragment"
         android:name="com.example.dotaheroes.fragments.HeroInfoFragment"
         android:label="fragment_hero_info"
-        tools:layout="@layout/fragment_hero_info" />
+        tools:layout="@layout/fragment_hero_info" >
+        <action
+            android:id="@+id/action_heroInfoFragment_to_heroWinRate"
+            app:destination="@id/heroWinRate" />
+    </fragment>
     <fragment
         android:id="@+id/favouriteHeroesFragment"
         android:name="com.example.dotaheroes.fragments.FavouriteHeroesFragment"
         android:label="fragment_favourite_heroes"
-        tools:layout="@layout/fragment_favourite_heroes" />
+        tools:layout="@layout/fragment_favourite_heroes" >
+        <action
+            android:id="@+id/action_favouriteHeroesFragment_to_heroInfoFragment"
+            app:destination="@id/heroInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/heroWinRate"
+        android:name="com.example.dotaheroes.fragments.HeroWinRate"
+        android:label="fragment_hero_win_rate"
+        tools:layout="@layout/fragment_hero_win_rate" />
 </navigation>

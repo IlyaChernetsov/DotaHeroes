@@ -3,12 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidCoureWork/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26615384615384613" />
+        <entry key="..\:/AndroidCoureWork/app/src/main/res/drawable/agility_attr_background.xml" value="0.14635416666666667" />
+        <entry key="..\:/AndroidCoureWork/app/src/main/res/drawable/gradient_bachground.xml" value="0.26615384615384613" />
+        <entry key="..\:/AndroidCoureWork/app/src/main/res/drawable/gradient_background.xml" value="0.1125" />
         <entry key="..\:/AndroidCoureWork/app/src/main/res/drawable/ic_default_user.xml" value="0.14635416666666667" />
+        <entry key="..\:/AndroidCoureWork/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26615384615384613" />
         <entry key="..\:/AndroidCoureWork/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
         <entry key="..\:/AndroidCoureWork/app/src/main/res/layout/fragment_favourite_heroes.xml" value="0.13020833333333334" />
-        <entry key="..\:/AndroidCoureWork/app/src/main/res/layout/fragment_hero_info.xml" value="0.13020833333333334" />
-        <entry key="..\:/AndroidCoureWork/app/src/main/res/layout/fragment_hero_list.xml" value="0.13020833333333334" />
+        <entry key="..\:/AndroidCoureWork/app/src/main/res/layout/fragment_hero_info.xml" value="0.4" />
+        <entry key="..\:/AndroidCoureWork/app/src/main/res/layout/fragment_hero_list.xml" value="0.264" />
+        <entry key="..\:/AndroidCoureWork/app/src/main/res/layout/fragment_hero_win_rate.xml" value="0.14427083333333332" />
         <entry key="..\:/AndroidCoureWork/app/src/main/res/layout/item_hero.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidCoureWork/app/src/main/res/mipmap-anydpi-v26/agility_attr.xml" value="0.14635416666666667" />
+        <entry key="..\:/AndroidCoureWork/app/src/main/res/mipmap-anydpi-v26/agility_attr_round.xml" value="0.14635416666666667" />
+        <entry key="..\:/AndroidCoureWork/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1125" />
+        <entry key="..\:/AndroidCoureWork/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1125" />
       </map>
     </option>
   </component>

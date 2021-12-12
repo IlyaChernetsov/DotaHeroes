@@ -13,11 +13,8 @@ import java.util.*
 
 class HeroAdapter : RecyclerView.Adapter<HeroAdapter.ViewHolder>(), AdapterData<Hero> {
 
-    private val mHeroList: MutableList<Hero> = LinkedList()
-
-    fun test(newHeroes: List<Hero>){
-        mHeroList.clear()
-    }
+    val mHeroList: MutableList<Hero> = LinkedList()
+    var itemClicked:(Int) -> Unit = {}
 
     override fun setData(newHeroes: List<Hero>) {
         mHeroList.clear()
@@ -28,6 +25,7 @@ class HeroAdapter : RecyclerView.Adapter<HeroAdapter.ViewHolder>(), AdapterData<
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
+            itemClicked = itemClicked,
             itemView = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_hero, parent, false)
         )
@@ -41,19 +39,18 @@ class HeroAdapter : RecyclerView.Adapter<HeroAdapter.ViewHolder>(), AdapterData<
         return mHeroList.count()
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        private val txtHeroTitle: TextView = itemView.findViewById(R.id.txtHeroTitle)
-        private val txtHeroAttackType: TextView = itemView.findViewById(R.id.txtHeroAttackType)
+    class ViewHolder(itemView: View,itemClicked:(Int) -> Unit) : RecyclerView.ViewHolder(itemView) {
         private val imageHero : ImageView = itemView.findViewById(R.id.imageAvatar)
+        init{
+            imageHero.setOnClickListener{
+                itemClicked(adapterPosition)
+            }
+        }
         fun bind(hero: Hero) {
-//            txtHeroTitle.text = hero.heroName
-//            txtHeroAttackType.text = hero.attackType
             Glide.with(itemView.context)
                 .load(hero.avatar)
                 .fitCenter()
                 .into(imageHero)
         }
-
     }
 }

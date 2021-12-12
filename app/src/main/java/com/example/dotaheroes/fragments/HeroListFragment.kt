@@ -5,10 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.domain.models.Hero
 import com.example.dotaheroes.R
 import com.example.dotaheroes.adapters.HeroAdapter
@@ -28,12 +29,17 @@ class HeroListFragment : Fragment(R.layout.fragment_hero_list) {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHeroListBinding.inflate(inflater, container, false)
-//        val layoutManager =
-//            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        val layoutManager = GridLayoutManager(requireContext(),4)
+        val layoutManager = GridLayoutManager(requireContext(), 3)
         binding.recycleHeroList.layoutManager = layoutManager
         val adapter = HeroAdapter()
         binding.recycleHeroList.adapter = adapter
+        adapter.itemClicked = {
+            val item = adapter.mHeroList[it]
+            findNavController().navigate(
+                R.id.action_heroListFragment_to_heroInfoFragment,
+                bundleOf(HeroInfoFragment.ARG_INFO_HERO to item)
+            )
+        }
         viewModel.state.observe(viewLifecycleOwner,
             { newValue ->
                 when (newValue) {

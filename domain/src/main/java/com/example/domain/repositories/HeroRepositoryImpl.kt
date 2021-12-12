@@ -17,15 +17,16 @@ class HeroRepositoryImpl() {
             val heroStats = heroProviderImpl.getHeroesStats()
 
             return GlobalScope.async {
-                heroStats.map {
-                    it.icon = "${RetrofitFactory.baseImg}${it.icon}"
-                    it.img = "${RetrofitFactory.baseImg}${it.img}"
-                    it
+               val newHeroStats = heroStats.map {
+                    it.copy(
+                        icon = "${RetrofitFactory.baseImg}${it.icon}",
+                        img = "${RetrofitFactory.baseImg}${it.img}"
+                    )
                 }
 
                 heroesList.map { hero -> heroConverter.fromApiToUi(
                     heroList = hero,
-                    heroStats = heroStats.first{stats ->  stats.id == hero.id}
+                    heroStats = newHeroStats.first{stats ->  stats.id == hero.id}
                 ) }
             }
         } catch (e: Exception) {

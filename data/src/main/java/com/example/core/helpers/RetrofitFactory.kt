@@ -34,5 +34,4 @@ class RetrofitFactory {
 
         fun getHeroService() = getRetrofitClient().create(HeroesSevice::class.java)
     }
-
 }
