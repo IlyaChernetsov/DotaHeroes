@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.domain.models.Hero
 import com.example.dotaheroes.R
 import com.example.dotaheroes.adapters.HeroAdapter
+import com.example.dotaheroes.business.HeroUi
 import com.example.dotaheroes.databinding.FragmentHeroListBinding
 import com.example.dotaheroes.helpers.State
 import com.example.dotaheroes.viewModels.HeroesListViewModel
@@ -44,7 +45,7 @@ class HeroListFragment : Fragment(R.layout.fragment_hero_list) {
             { newValue ->
                 when (newValue) {
                     is State.LoadedState<*> -> {
-                        adapter.setData(newValue.data.map { it as Hero })
+                        adapter.setData(newValue.data.map { it as HeroUi })
                         binding.cpbCarry.visibility = View.GONE
                         binding.txtNoItems.visibility = View.GONE
                     }

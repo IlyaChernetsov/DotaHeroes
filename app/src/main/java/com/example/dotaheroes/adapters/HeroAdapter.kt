@@ -8,14 +8,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.domain.models.Hero
 import com.example.dotaheroes.R
+import com.example.dotaheroes.business.HeroUi
 import java.util.*
 
-class HeroAdapter : RecyclerView.Adapter<HeroAdapter.ViewHolder>(), AdapterData<Hero> {
+class HeroAdapter : RecyclerView.Adapter<HeroAdapter.ViewHolder>(), AdapterData<HeroUi> {
 
-    val mHeroModelList: MutableList<Hero> = LinkedList()
+    val mHeroModelList: MutableList<HeroUi> = LinkedList()
     var itemClicked:(Int) -> Unit = {}
 
-    override fun setData(newHeroModels: List<Hero>) {
+    override fun setData(newHeroModels: List<HeroUi>) {
         mHeroModelList.clear()
         mHeroModelList.addAll(newHeroModels)
         notifyDataSetChanged()
@@ -45,7 +46,7 @@ class HeroAdapter : RecyclerView.Adapter<HeroAdapter.ViewHolder>(), AdapterData<
                 itemClicked(adapterPosition)
             }
         }
-        fun bind(heroModel: Hero) {
+        fun bind(heroModel: HeroUi) {
             Glide.with(itemView.context)
                 .load(heroModel.avatar)
                 .fitCenter()

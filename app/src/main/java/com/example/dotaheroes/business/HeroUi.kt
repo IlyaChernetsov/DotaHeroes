@@ -12,7 +12,7 @@ data class HeroUi(
     val attributes: String,
     val roles: List<String>,
     val heroName: String,
-    val heroBackGroundColor:Int,
+    val heroBackGroundColor: Int,
     val heroAttrIcon: Int
 
-): Parcelable
+) : Parcelable

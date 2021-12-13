@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.domain.models.Hero
 import com.example.dotaheroes.R
+import com.example.dotaheroes.business.HeroUi
 import com.example.dotaheroes.databinding.FragmentHeroInfoBinding
 
 class HeroInfoFragment : Fragment() {
@@ -23,13 +24,13 @@ class HeroInfoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHeroInfoBinding.inflate(inflater, container, false)
-        val hero = arguments?.getParcelable<Hero>(ARG_INFO_HERO)
+        val hero = arguments?.getParcelable<HeroUi>(ARG_INFO_HERO)
         binding.heroName.text = hero?.heroName
         binding.attackType.text = hero?.attackType
-        binding.heroAttr.text = heroAttr(hero)
+        binding.heroAttr.text = hero?.attributes
         binding.rolesList.text = hero?.roles.toString()
-        binding.containerView.setBackgroundResource(heroBackGround(hero))
-        binding.heroImageAttr.setImageResource(heroAttrIcon(hero))
+        hero?.heroBackGroundColor?.let { binding.containerView.setBackgroundResource(it) }
+        hero?.heroAttrIcon?.let { binding.heroImageAttr.setImageResource(it) }
         Glide.with(requireActivity())
             .load(hero?.avatar)
             .fitCenter()
@@ -40,7 +41,7 @@ class HeroInfoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val hero = arguments?.getParcelable<Hero>(ARG_INFO_HERO)
+        val hero = arguments?.getParcelable<HeroUi>(ARG_INFO_HERO)
         binding.showWinRate.setOnClickListener {
             findNavController().navigate(
                 R.id.action_heroInfoFragment_to_heroWinRate,
@@ -48,33 +49,6 @@ class HeroInfoFragment : Fragment() {
             )
         }
     }
-    fun heroBackGround(heroModel: Hero?): Int {
-        return when (heroModel?.attributes) {
-            "str" -> R.drawable.gradient_background_strength
-            "agi" -> R.drawable.gradient_background_agility
-            "int" -> R.drawable.gradient_background_intelect
-            else -> R.drawable.ic_default_user
-        }
-    }
-
-    fun heroAttr(heroModel: Hero?): String {
-        return when (heroModel?.attributes) {
-            "str" -> "Strength"
-            "agi" -> "Agility"
-            "int" -> "Intellect"
-            else -> "Not Founded"
-        }
-    }
-
-    fun heroAttrIcon(heroModel: Hero?): Int {
-        return return when (heroModel?.attributes) {
-            "str" -> R.drawable.strength
-            "agi" -> R.drawable.agility
-            "int" -> R.drawable.intelect
-            else -> R.drawable.ic_default_user
-        }
-    }
-
     companion object {
 
         val ARG_INFO_HERO = "ARG_INFO_HERO"
