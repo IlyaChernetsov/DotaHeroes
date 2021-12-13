@@ -1,7 +1,6 @@
 package com.example.dotaheroes.viewModels
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.*
 import com.example.domain.models.Hero
 import com.example.domain.repositories.HeroRepositoryImpl
@@ -12,13 +11,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import kotlin.math.log
 
 class HeroesListViewModel() : ViewModel() {
     private val TAG = HeroesListViewModel::class.java.simpleName
 
-    private val _selectedHero = MutableLiveData<List<Hero?>>()
-    val selected: LiveData<List<Hero?>> = _selectedHero
     val state: MutableLiveData<State> =
         MutableLiveData<State>().default(initialValue = State.LoadingState())
 

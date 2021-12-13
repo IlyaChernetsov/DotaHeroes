@@ -3,4 +3,5 @@
     <string name="no_heroes_found">No heroes found</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pick_and_win_rate">Pick and Win rate</string>
 </resources>

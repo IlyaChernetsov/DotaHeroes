@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.domain.models.Hero
@@ -13,12 +12,12 @@ import java.util.*
 
 class HeroAdapter : RecyclerView.Adapter<HeroAdapter.ViewHolder>(), AdapterData<Hero> {
 
-    val mHeroList: MutableList<Hero> = LinkedList()
+    val mHeroModelList: MutableList<Hero> = LinkedList()
     var itemClicked:(Int) -> Unit = {}
 
-    override fun setData(newHeroes: List<Hero>) {
-        mHeroList.clear()
-        mHeroList.addAll(newHeroes)
+    override fun setData(newHeroModels: List<Hero>) {
+        mHeroModelList.clear()
+        mHeroModelList.addAll(newHeroModels)
         notifyDataSetChanged()
     }
 
@@ -32,11 +31,11 @@ class HeroAdapter : RecyclerView.Adapter<HeroAdapter.ViewHolder>(), AdapterData<
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(hero = mHeroList[position])
+        holder.bind(heroModel = mHeroModelList[position])
     }
 
     override fun getItemCount(): Int {
-        return mHeroList.count()
+        return mHeroModelList.count()
     }
 
     class ViewHolder(itemView: View,itemClicked:(Int) -> Unit) : RecyclerView.ViewHolder(itemView) {
@@ -46,9 +45,9 @@ class HeroAdapter : RecyclerView.Adapter<HeroAdapter.ViewHolder>(), AdapterData<
                 itemClicked(adapterPosition)
             }
         }
-        fun bind(hero: Hero) {
+        fun bind(heroModel: Hero) {
             Glide.with(itemView.context)
-                .load(hero.avatar)
+                .load(heroModel.avatar)
                 .fitCenter()
                 .into(imageHero)
         }

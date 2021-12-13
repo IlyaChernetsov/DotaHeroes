@@ -28,6 +28,7 @@ class HeroInfoFragment : Fragment() {
         binding.attackType.text = hero?.attackType
         binding.heroAttr.text = heroAttr(hero)
         binding.rolesList.text = hero?.roles.toString()
+        binding.containerView.setBackgroundResource(heroBackGround(hero))
         binding.heroImageAttr.setImageResource(heroAttrIcon(hero))
         Glide.with(requireActivity())
             .load(hero?.avatar)
@@ -47,9 +48,17 @@ class HeroInfoFragment : Fragment() {
             )
         }
     }
+    fun heroBackGround(heroModel: Hero?): Int {
+        return when (heroModel?.attributes) {
+            "str" -> R.drawable.gradient_background_strength
+            "agi" -> R.drawable.gradient_background_agility
+            "int" -> R.drawable.gradient_background_intelect
+            else -> R.drawable.ic_default_user
+        }
+    }
 
-    fun heroAttr(hero: Hero?): String {
-        return when (hero?.attributes) {
+    fun heroAttr(heroModel: Hero?): String {
+        return when (heroModel?.attributes) {
             "str" -> "Strength"
             "agi" -> "Agility"
             "int" -> "Intellect"
@@ -57,8 +66,8 @@ class HeroInfoFragment : Fragment() {
         }
     }
 
-    fun heroAttrIcon(hero: Hero?): Int {
-        return return when (hero?.attributes) {
+    fun heroAttrIcon(heroModel: Hero?): Int {
+        return return when (heroModel?.attributes) {
             "str" -> R.drawable.strength
             "agi" -> R.drawable.agility
             "int" -> R.drawable.intelect

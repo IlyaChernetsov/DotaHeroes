@@ -6,6 +6,16 @@
     app:startDestination="@id/heroListFragment">
 
     <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.example.dotaheroes.fragments.SplashScreen"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreen_to_heroListFragment"
+            app:destination="@id/heroListFragment" />
+    </fragment>
+
+    <fragment
         android:id="@+id/heroListFragment"
         android:name="com.example.dotaheroes.fragments.HeroListFragment"
         android:label="fragment_hero_list"
@@ -40,4 +50,5 @@
         android:name="com.example.dotaheroes.fragments.HeroWinRate"
         android:label="fragment_hero_win_rate"
         tools:layout="@layout/fragment_hero_win_rate" />
+
 </navigation>

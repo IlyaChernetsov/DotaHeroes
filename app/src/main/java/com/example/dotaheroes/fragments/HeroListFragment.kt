@@ -34,7 +34,7 @@ class HeroListFragment : Fragment(R.layout.fragment_hero_list) {
         val adapter = HeroAdapter()
         binding.recycleHeroList.adapter = adapter
         adapter.itemClicked = {
-            val item = adapter.mHeroList[it]
+            val item = adapter.mHeroModelList[it]
             findNavController().navigate(
                 R.id.action_heroListFragment_to_heroInfoFragment,
                 bundleOf(HeroInfoFragment.ARG_INFO_HERO to item)

@@ -3,9 +3,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/containerView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="@drawable/gradient_background_strength"
     tools:context=".fragments.HeroInfoFragment">
 
 
@@ -70,13 +71,14 @@
                 android:id="@+id/hero_attr"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
+                android:layout_marginStart="3dp"
                 android:gravity="center"
                 android:text="Attr"
-                android:textAllCaps="true"
-                android:textColor="#808080"
-                android:textStyle="italic"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="18dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.053"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/hero_image_attr"
                 app:layout_constraintTop_toBottomOf="@+id/hero_icon" />
 
@@ -85,31 +87,36 @@
                 android:layout_width="149dp"
                 android:layout_height="52dp"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/gradient_background"
+                android:background="@drawable/gradient_background_strength"
                 android:text="showWinRate"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.158"
+                app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/heroRoles"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Roles"
-                android:textSize="20dp"
+                android:text="Roles:"
+                android:textColor="@color/black"
+                android:textSize="23dp"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.523" />
+                app:layout_constraintVertical_bias="0.529" />
 
             <TextView
                 android:id="@+id/rolesList"
-                android:layout_width="305dp"
-                android:layout_height="59dp"
-                android:orientation="horizontal"
+                android:layout_width="356dp"
+                android:layout_height="73dp"
                 android:gravity="center"
+                android:orientation="horizontal"
+                android:textColor="@color/black"
+                android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.507"
@@ -121,9 +128,9 @@
                 android:id="@+id/attack_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"
-                android:text="TextView"
+                android:text="attacktype"
                 app:layout_constraintStart_toEndOf="@+id/hero_icon"
                 app:layout_constraintTop_toBottomOf="@+id/hero_name" />
             >
