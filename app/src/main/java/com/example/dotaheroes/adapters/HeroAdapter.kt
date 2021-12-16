@@ -1,15 +1,23 @@
 package com.example.dotaheroes.adapters
 
+import android.R.attr
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.domain.models.Hero
 import com.example.dotaheroes.R
 import com.example.dotaheroes.business.HeroUi
 import java.util.*
+import android.R.attr.src
+
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
+
+import androidx.core.graphics.drawable.RoundedBitmapDrawable
+
+
+
 
 class HeroAdapter : RecyclerView.Adapter<HeroAdapter.ViewHolder>(), AdapterData<HeroUi> {
 

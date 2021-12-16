@@ -1,14 +1,17 @@
-package com.example.domain.models
+package com.example.core.storage.models
 
-import kotlinx.serialization.Serializable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.example.core.storage.contracts.RoomContract
 
-data class Hero(
-    val id: Int,
+@Entity(tableName = RoomContract.tableFavouriteHeroes)
+data class FavouriteHeroEntity(
+    @PrimaryKey val id: Int,
     val attackType: String,
-    val avatar: String,
+    val avatar: Int,
     val attributes: String,
-    val isChosen: Boolean,
     val roles: String,
+    val isChosen: Boolean,
     val heroName: String,
     val herald_pick: Int,
     val herald_win: Int,
@@ -27,5 +30,5 @@ data class Hero(
     val immortal_pick: Int,
     val immortal_win: Int,
     val turbo_pick: Int,
-    val turbo_win: Int
+    val turbo_win: Int,
 )

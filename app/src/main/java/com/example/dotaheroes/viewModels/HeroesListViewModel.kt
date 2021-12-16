@@ -2,8 +2,6 @@ package com.example.dotaheroes.viewModels
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.example.domain.models.Hero
-import com.example.domain.repositories.HeroRepositoryImpl
 import com.example.dotaheroes.business.HeroProviderUi
 import com.example.dotaheroes.helpers.State
 import com.example.dotaheroes.helpers.default

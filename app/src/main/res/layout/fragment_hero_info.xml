@@ -6,7 +6,6 @@
     android:id="@+id/containerView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background_strength"
     tools:context=".fragments.HeroInfoFragment">
 
 
@@ -14,7 +13,6 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
         app:cardMaxElevation="12dp"
@@ -82,12 +80,12 @@
                 app:layout_constraintStart_toEndOf="@+id/hero_image_attr"
                 app:layout_constraintTop_toBottomOf="@+id/hero_icon" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/showWinRate"
-                android:layout_width="149dp"
-                android:layout_height="52dp"
+                android:layout_width="131dp"
+                android:layout_height="54dp"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/gradient_background_strength"
+                android:background="@drawable/gradient_button_background_strength"
                 android:text="showWinRate"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -104,10 +102,10 @@
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintHorizontal_bias="0.484"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.529" />
+                app:layout_constraintVertical_bias="0.56" />
 
             <TextView
                 android:id="@+id/rolesList"
@@ -119,10 +117,9 @@
                 android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.507"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/heroRoles"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.731" />
 
             <TextView
                 android:id="@+id/attack_type"
@@ -133,8 +130,19 @@
                 android:text="attacktype"
                 app:layout_constraintStart_toEndOf="@+id/hero_icon"
                 app:layout_constraintTop_toBottomOf="@+id/hero_name" />
-            >
+
+            <ImageView
+                android:id="@+id/addToFavouriteImage"
+                android:layout_width="67dp"
+                android:layout_height="78dp"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/star_not_painted"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.978"
+                app:layout_constraintStart_toEndOf="@+id/hero_name"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

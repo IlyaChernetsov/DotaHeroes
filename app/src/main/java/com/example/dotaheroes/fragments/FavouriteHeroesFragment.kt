@@ -13,12 +13,6 @@ class FavouriteHeroesFragment : Fragment(R.layout.fragment_favourite_heroes) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         return inflater.inflate(R.layout.fragment_favourite_heroes, container, false)
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance() = FavouriteHeroesFragment()
     }
 }

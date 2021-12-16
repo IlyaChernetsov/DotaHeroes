@@ -8,9 +8,9 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.domain.models.Hero
 import com.example.dotaheroes.R
 import com.example.dotaheroes.adapters.HeroAdapter
 import com.example.dotaheroes.business.HeroUi
@@ -18,11 +18,12 @@ import com.example.dotaheroes.databinding.FragmentHeroListBinding
 import com.example.dotaheroes.helpers.State
 import com.example.dotaheroes.viewModels.HeroesListViewModel
 
+
+
 class HeroListFragment : Fragment(R.layout.fragment_hero_list) {
     private lateinit var binding: FragmentHeroListBinding
 
     private val viewModel: HeroesListViewModel by viewModels()
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,11 +35,12 @@ class HeroListFragment : Fragment(R.layout.fragment_hero_list) {
         binding.recycleHeroList.layoutManager = layoutManager
         val adapter = HeroAdapter()
         binding.recycleHeroList.adapter = adapter
+
         adapter.itemClicked = {
             val item = adapter.mHeroModelList[it]
             findNavController().navigate(
                 R.id.action_heroListFragment_to_heroInfoFragment,
-                bundleOf(HeroInfoFragment.ARG_INFO_HERO to item)
+                bundleOf(HeroInfoFragment.ARG_INFO_HERO to item),
             )
         }
         viewModel.state.observe(viewLifecycleOwner,

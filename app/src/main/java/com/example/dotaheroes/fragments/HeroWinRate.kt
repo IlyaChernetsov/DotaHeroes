@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.domain.models.Hero
+import com.example.dotaheroes.business.HeroUi
 import com.example.dotaheroes.databinding.FragmentHeroWinRateBinding
 
 
@@ -18,7 +18,7 @@ class HeroWinRate : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHeroWinRateBinding.inflate(inflater, container, false)
-        val hero = arguments?.getParcelable<Hero>(ARG_RATE_HERO)
+        val hero = arguments?.getParcelable<HeroUi>(ARG_RATE_HERO)
         return binding.root
     }
 
